@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yashmitha Majji – Full Stack & AI/ML</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F5F9; --panel:#FFFFFF; --ink:#141A33; --muted:#5A6180; --line:#D9DCE8;
+  --accent:#5B4BFF; --accent-soft:#E6E3FF; --on-accent:#FFFFFF;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0F1224;--panel:#171B33;--ink:#EEF0FA;--muted:#A0A7C7;--line:#2A3052;--accent:#8E82FF;--accent-soft:#25224F;--on-accent:#0F1224;}
+}
+:root[data-theme="dark"]{--paper:#0F1224;--panel:#171B33;--ink:#EEF0FA;--muted:#A0A7C7;--line:#2A3052;--accent:#8E82FF;--accent-soft:#25224F;--on-accent:#0F1224;}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+nav .mark{font:700 20px var(--display);text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--muted);font-size:15px}
+nav ul a:hover{color:var(--accent)}
+
+/* hero */
+.hero{position:relative;min-height:78vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
+#field{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .wrap{position:relative;z-index:1;pointer-events:none}
+.hero a{pointer-events:auto}
+.hero .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:4px 12px;border-radius:99px;font-size:14px;font-weight:500;margin-bottom:22px}
+h1{font:700 clamp(48px,11vw,128px)/.92 var(--display);letter-spacing:-.035em;margin:0 0 26px}
+.hero p{max-width:34ch;font-size:clamp(19px,2.4vw,24px);line-height:1.4;color:var(--muted);margin:0 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:99px;text-decoration:none;font-weight:500;border:1.5px solid var(--ink)}
+.btn.fill{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{transform:translateY(-2px)}
+.corner{position:absolute;width:18px;height:18px;border:0 solid var(--accent);z-index:1}
+.corner.tl{top:12px;left:24px;border-width:2px 0 0 2px}.corner.br{bottom:12px;right:24px;border-width:0 2px 2px 0}
+
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:32px}
+h2{font:700 30px/1.1 var(--display);letter-spacing:-.02em;margin:0}
+.lead{font-size:22px;line-height:1.5;max-width:46ch;margin:0}
+
+/* skills as layers */
+.layers{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.layer{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:18px 22px;border-top:1px solid var(--line);align-items:center}
+.layer:first-child{border-top:0}
+.layer h3{font:500 15px var(--body);color:var(--muted);margin:0;display:flex;align-items:center;gap:10px}
+.layer h3::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--sw,var(--accent));flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:5px 13px;border-radius:99px;background:var(--accent-soft);color:var(--ink);font-size:15px;font-weight:500}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.card.wide{grid-column:span 2}
+.card h3{font:700 22px/1.2 var(--display);margin:0;letter-spacing:-.01em}
+.card .stack{font-size:14px;color:var(--accent);font-weight:500;margin:0}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:16px}
+.card li+li{margin-top:6px}
+.card .links{margin-top:auto;padding-top:6px;display:flex;gap:16px;font-weight:500}
+.card .links a{color:var(--accent)}
+
+/* timeline lists */
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:18px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0;padding-top:0}
+.row b{font:700 19px var(--display)}
+.row span{color:var(--muted);font-size:15px}
+.row p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:16px}
+.stack-col{display:flex;flex-direction:column}
+
+footer{padding:84px 0 64px}
+footer h2{font-size:clamp(34px,6vw,64px);margin-bottom:22px;max-width:14ch}
+footer .small{color:var(--muted);font-size:14px;margin-top:48px}
+
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr;gap:20px}
+  .layer{grid-template-columns:1fr;gap:10px}
+  .projects{grid-template-columns:1fr}.card.wide{grid-column:auto}
+  nav ul{gap:14px}nav ul a{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="corner tl"></span><span class="corner br"></span>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap" style="position:absolute;top:0;left:0;right:0;z-index:2;pointer-events:auto">
+    <nav>
+      <a class="mark" href="#top">YM</a>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap" id="top">
+    <span class="tag">Open to internships</span>
+    <h1>Yashmitha<br>Majji</h1>
+    <p>I build full-stack apps and AI-powered tools.</p>
+    <div class="btns">
+      <a class="btn fill" href="#projects">See my projects</a>
+      <a class="btn" href="mailto:yashmithamajji2005@gmail.com">Email me</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about"><div class="wrap grid">
+  <h2>About</h2>
+  <p class="lead">I’m a Computer Science &amp; Business Systems student at GITAM University (CGPA 8.10), building with Python, React, Node.js and PostgreSQL. I’m looking for a Full Stack or AI/ML internship.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2 style="margin-bottom:32px">Technical skills</h2>
+  <div class="layers">
+    <div class="layer" style="--sw:#5B4BFF"><h3>Programming &amp; Data Handling</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Pandas</span></div></div>
+    <div class="layer" style="--sw:#FF5C8A"><h3>Machine Learning</h3><div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Machine Learning</span></div></div>
+    <div class="layer" style="--sw:#12B5A6"><h3>AI &amp; Deep Learning</h3><div class="chips"><span class="chip">NLP</span><span class="chip">Deep Learning</span></div></div>
+    <div class="layer" style="--sw:#FFB020"><h3>Generative AI</h3><div class="chips"><span class="chip">LLMs</span><span class="chip">Prompt Engineering</span></div></div>
+    <div class="layer" style="--sw:#3B82F6"><h3>Database &amp; API Development</h3><div class="chips"><span class="chip">SQL</span><span class="chip">REST APIs</span></div></div>
+    <div class="layer" style="--sw:#8E5BFF"><h3>Web Technologies</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></div>
+    <div class="layer" style="--sw:#6B7394"><h3>Core CS Fundamentals</h3><div class="chips"><span class="chip">DSA</span><span class="chip">OOP</span></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2 style="margin-bottom:32px">Projects</h2>
+  <div class="projects">
+    <article class="card wide">
+      <h3>ReachInbox – Email Job Scheduler</h3>
+      <p class="stack">Next.js, TypeScript, Express.js, PostgreSQL, Prisma, Redis, BullMQ</p>
+      <ul>
+        <li>Full-stack email scheduling platform with Google OAuth login and scheduled/sent email tracking.</li>
+        <li>Persistent background jobs with BullMQ and Redis, including restart recovery so no scheduled email is lost.</li>
+        <li>CSV bulk scheduling, idempotency, concurrency control and rate limiting for reliable delivery.</li>
+      </ul>
+      <div class="links"><a href="https://reachinbox-email-scheduler-liard-one.vercel.app/" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/yashmithamajji" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+    <article class="card">
+      <h3>Skycast – Weather App</h3>
+      <p class="stack">HTML, CSS, JavaScript, OpenWeatherMap API</p>
+      <ul>
+        <li>City search, live temperature, humidity, wind, 5-day forecast, sunrise and sunset.</li>
+        <li>Responsive and deployed on GitHub Pages.</li>
+      </ul>
+      <div class="links"><a href="https://yashmithamajji.github.io/skycast" target="_blank" rel="noopener">Live demo</a></div>
+    </article>
+    <article class="card">
+      <h3>Smart Waste Management System</h3>
+      <p class="stack">Smart India Hackathon</p>
+      <ul>
+        <li>Team solution for waste collection, monitoring and recycling.</li>
+      </ul>
+    </article>
+    <article class="card wide">
+      <h3>Publications &amp; Conferences Management System</h3>
+      <p class="stack">Figma design</p>
+      <ul>
+        <li>Designed an app to store, manage and retrieve publications, conferences and books, improving data organisation and access.</li>
+      </ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="background"><div class="wrap grid">
+  <h2>Background</h2>
+  <div class="stack-col">
+    <div class="row"><b>Campus Ambassador, Jyesta Corporate Entity</b><span>Jan – Feb 2026</span><p>Represented the organisation on campus and coordinated with students and its teams.</p></div>
+    <div class="row"><b>B.Tech, CS &amp; Business Systems, GITAM University</b><span>2023 – 2027</span><p>CGPA 8.10</p></div>
+    <div class="row"><b>Intermediate, Sri Chaitanya Junior College</b><span>2021 – 2023</span><p>80.3%</p></div>
+    <div class="row"><b>Selected for the Google AI Program by Kaggle</b><span>2025</span></div>
+    <div class="row"><b>Smart India Hackathon participant</b><span></span></div>
+    <div class="row"><b>Practising DSA on LeetCode</b><span></span></div>
+  </div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <h2>Let’s build something.</h2>
+  <div class="btns">
+    <a class="btn fill" href="mailto:yashmithamajji2005@gmail.com">yashmithamajji2005@gmail.com</a>
+    <a class="btn" href="https://github.com/yashmithamajji" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/yashmitha-m-b08705282" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <p class="small">© 2026 Yashmitha Majji</p>
+</div></footer>
+
+<script>
+(function(){
+  var c=document.getElementById('field'),x=c.getContext('2d'),pts=[],W,H,mx=-999,my=-999,dpr=Math.min(window.devicePixelRatio||1,2);
+  var still=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function col(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()||'#5B4BFF'}
+  function size(){
+    var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    pts=[];var gap=W<600?44:56;
+    for(var i=gap/2;i<W;i+=gap)for(var j=gap/2;j<H;j+=gap)pts.push({hx:i,hy:j,x:i,y:j});
+    draw();
+  }
+  function draw(){
+    x.clearRect(0,0,W,H);
+    var line=col('--accent'),dot=col('--line');
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i],dx=p.hx-mx,dy=p.hy-my,d=Math.sqrt(dx*dx+dy*dy),R=150;
+      var tx=p.hx,ty=p.hy;
+      if(d<R&&d>0){var f=(1-d/R)*18;tx+=dx/d*f;ty+=dy/d*f}
+      p.x+=(tx-p.x)*.15;p.y+=(ty-p.y)*.15;
+      x.fillStyle=d<R?line:dot;x.beginPath();x.arc(p.x,p.y,d<R?2.6:1.8,0,6.283);x.fill();
+    }
+    x.strokeStyle=line;x.lineWidth=1;
+    for(var a=0;a<pts.length;a++){
+      var A=pts[a],da=Math.hypot(A.hx-mx,A.hy-my);if(da>130)continue;
+      for(var b=a+1;b<pts.length;b++){
+        var B=pts[b];if(Math.hypot(B.hx-mx,B.hy-my)>130)continue;
+        var dd=Math.hypot(A.x-B.x,A.y-B.y);if(dd>80)continue;
+        x.globalAlpha=1-dd/80;x.beginPath();x.moveTo(A.x,A.y);x.lineTo(B.x,B.y);x.stroke();
+      }
+    }
+    x.globalAlpha=1;
+  }
+  var raf;function loop(){draw();raf=requestAnimationFrame(loop)}
+  var hero=c.parentElement;
+  hero.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(still)draw()});
+  hero.addEventListener('pointerleave',function(){mx=my=-999;if(still)draw()});
+  window.addEventListener('resize',size);
+  size();
+  if(!still)loop();
+  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',draw);
+})();
+</script>
+</body>
+</html>
